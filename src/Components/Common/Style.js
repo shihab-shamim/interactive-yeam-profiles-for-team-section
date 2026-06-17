@@ -50,7 +50,7 @@ const Style = ({ attributes, id }) => {
 			object-fit: ${styles?.image?.imageFit || 'cover'};
 		}
 
-		${cardSl}:hover ${imgBoxSl} {
+		${cardSl}:hover .itp_team_section__img-box {
 			transform: scale(${styles?.image?.hoverScale || 1.06});
 		}
 
@@ -86,7 +86,7 @@ const Style = ({ attributes, id }) => {
 			background-color: ${styles?.social?.iconBg || 'rgba(255,255,255,0.15)'};
 			width: ${styles?.social?.btnSize || '36px'};
 			height: ${styles?.social?.btnSize || '36px'};
-			border-radius: ${styles?.social?.btnRadius || '50%'};
+			border-radius: ${getBoxCSS(styles?.social?.btnRadius) || '50%'};
 			svg {
 				width: ${styles?.social?.iconSize || 14}px;
 				height: ${styles?.social?.iconSize || 14}px;

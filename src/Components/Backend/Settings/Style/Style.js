@@ -174,31 +174,31 @@ const Style = ({ attributes, setAttributes, device }) => {
 			{/* ── Social Icons ──────────────────────────────────── */}
 			<PanelBody className='bPlPanelBody' title={__('Social Icons', 'team-section')} initialOpen={false}>
 				<ColorControl
-					label={__('Icon Color', 'team-section')}
+					label={__(' Color', 'team-section')}
 					value={styles?.social?.iconColor}
 					onChange={(v) => setAttributes({ styles: updateData(styles, v, 'social', 'iconColor') })}
 				/>
 				<ColorControl
 					className='mt10'
-					label={__('Icon Hover Color', 'team-section')}
+					label={__(' Hover Color', 'team-section')}
 					value={styles?.social?.iconHoverColor}
 					onChange={(v) => setAttributes({ styles: updateData(styles, v, 'social', 'iconHoverColor') })}
 				/>
 				<ColorControl
 					className='mt10'
-					label={__('Button Background', 'team-section')}
+					label={__(' Background', 'team-section')}
 					value={styles?.social?.iconBg}
 					onChange={(v) => setAttributes({ styles: updateData(styles, v, 'social', 'iconBg') })}
 				/>
 				<ColorControl
 					className='mt10'
-					label={__('Button Hover Background', 'team-section')}
+					label={__(' Hover Background', 'team-section')}
 					value={styles?.social?.iconHoverBg}
 					onChange={(v) => setAttributes({ styles: updateData(styles, v, 'social', 'iconHoverBg') })}
 				/>
 				<RangeControl
 					className='mt15'
-					label={__('Icon Size (px)', 'team-section')}
+					label={__(' Size (px)', 'team-section')}
 					value={styles?.social?.iconSize}
 					min={8}
 					max={40}
@@ -206,14 +206,14 @@ const Style = ({ attributes, setAttributes, device }) => {
 				/>
 				<UnitControl
 					className='mt15'
-					label={__('Button Size', 'team-section')}
+					label={__('Background Size', 'team-section')}
 					value={styles?.social?.btnSize}
 					onChange={(v) => setAttributes({ styles: updateData(styles, v, 'social', 'btnSize') })}
 				/>
-				<UnitControl
+				<BoxControl
 					className='mt15'
-					label={__('Button Border Radius', 'team-section')}
-					value={styles?.social?.btnRadius}
+					label={__('Radius', 'team-section')}
+					values={styles?.social?.btnRadius}
 					onChange={(v) => setAttributes({ styles: updateData(styles, v, 'social', 'btnRadius') })}
 				/>
 				<RangeControl
@@ -226,7 +226,7 @@ const Style = ({ attributes, setAttributes, device }) => {
 				/>
 				<BoxControl
 					className='mt15'
-					label={__('Social Links Margin', 'team-section')}
+					label={__('Margin', 'team-section')}
 					values={styles?.social?.margin}
 					onChange={(v) => setAttributes({ styles: updateData(styles, v, 'social', 'margin') })}
 				/>
