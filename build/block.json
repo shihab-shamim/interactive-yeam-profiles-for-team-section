@@ -18,15 +18,257 @@
       "type": "string",
       "default": "wide"
     },
-    "purposeType": {
-      "type": "string",
-      "default": "test"
+    "profiles": {
+      "type": "array",
+      "default": [
+        {
+          "name": "Bhairab Patra",
+          "designation": "UX / UI Designer",
+          "bio": "Crafting seamless digital experiences with an eye for detail and a passion for great design.",
+          "image": "https://images.pexels.com/photos/3131819/pexels-photo-3131819.jpeg?auto=compress&cs=tinysrgb&w=600",
+          "social": [
+            {
+              "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' width='14' height='14' fill='currentColor'><path d='M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z'/></svg>",
+              "link": "#"
+            },
+            {
+              "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='14' height='14' fill='currentColor'><path d='M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z'/></svg>",
+              "link": "#"
+            },
+            {
+              "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' width='14' height='14' fill='currentColor'><path d='M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z'/></svg>",
+              "link": "#"
+            }
+          ]
+        },
+        {
+          "name": "Swapna",
+          "designation": "HR Manager",
+          "bio": "Building a thriving culture by connecting people with purpose and creating a great workplace.",
+          "image": "https://images.pexels.com/photos/4856247/pexels-photo-4856247.jpeg?auto=compress&cs=tinysrgb&w=600",
+          "social": [
+            {
+              "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' width='14' height='14' fill='currentColor'><path d='M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z'/></svg>",
+              "link": "#"
+            },
+            {
+              "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='14' height='14' fill='currentColor'><path d='M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z'/></svg>",
+              "link": "#"
+            },
+            {
+              "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' width='14' height='14' fill='currentColor'><path d='M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z'/></svg>",
+              "link": "#"
+            }
+          ]
+        },
+        {
+          "name": "Virat",
+          "designation": "Java Developer",
+          "bio": "Writing robust, scalable backend systems that power products millions of people rely on.",
+          "image": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600",
+          "social": [
+            {
+              "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' width='14' height='14' fill='currentColor'><path d='M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z'/></svg>",
+              "link": "#"
+            },
+            {
+              "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='14' height='14' fill='currentColor'><path d='M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z'/></svg>",
+              "link": "#"
+            },
+            {
+              "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' width='14' height='14' fill='currentColor'><path d='M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z'/></svg>",
+              "link": "#"
+            }
+          ]
+        }
+      ]
     },
-    "colors": {
+    "options": {
       "type": "object",
       "default": {
-        "color": "black",
-        "bg": "#B1C5A4"
+        "showName": true,
+        "showDesignation": true,
+        "showBio": true,
+        "showSocial": true,
+        "openInNewTab": true
+      }
+    },
+    "styles": {
+      "type": "object",
+      "default": {
+        "columns": {
+          "desktop": 3,
+          "tablet": 2,
+          "mobile": 1
+        },
+        "columnGap": 28,
+        "rowGap": 28,
+        "bg": {},
+        "padding": {
+          "desktop": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+          },
+          "tablet": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+          },
+          "mobile": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+          }
+        },
+        "margin": {
+          "desktop": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+          },
+          "tablet": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+          },
+          "mobile": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+          }
+        },
+        "card": {
+          "height": {
+            "desktop": "520px",
+            "tablet": "480px",
+            "mobile": "440px"
+          },
+          "radius": {
+            "top": "16px",
+            "right": "16px",
+            "bottom": "16px",
+            "left": "16px"
+          }
+        },
+        "image": {
+          "imageFit": "cover",
+          "hoverScale": 1.06
+        },
+        "content": {
+          "bg": {
+            "type": "gradient",
+            "gradient": "linear-gradient(0deg, #000000 50%, transparent)"
+          },
+          "height": "65%",
+          "padding": {
+            "top": "70px",
+            "right": "24px",
+            "bottom": "28px",
+            "left": "24px"
+          },
+          "textAlign": "center"
+        },
+        "name": {
+          "color": "#ffffff",
+          "margin": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "6px",
+            "left": "0px"
+          },
+          "typo": {
+            "fontFamily": "",
+            "fontCategory": "",
+            "fontWeight": "700",
+            "fontVariant": "",
+            "isUploadFont": false,
+            "fontSize": {
+              "desktop": 22,
+              "tablet": 22,
+              "mobile": 20
+            },
+            "fontStyle": "normal",
+            "textTransform": "none",
+            "textDecoration": "none",
+            "lineHeight": "",
+            "letterSpace": "0px"
+          }
+        },
+        "designation": {
+          "color": "#ffeb3b",
+          "margin": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "14px",
+            "left": "0px"
+          },
+          "typo": {
+            "fontFamily": "",
+            "fontCategory": "",
+            "fontWeight": "500",
+            "fontVariant": "",
+            "isUploadFont": false,
+            "fontSize": {
+              "desktop": 14,
+              "tablet": 14,
+              "mobile": 13
+            },
+            "fontStyle": "normal",
+            "textTransform": "none",
+            "textDecoration": "none",
+            "lineHeight": "",
+            "letterSpace": "0.5px"
+          }
+        },
+        "bio": {
+          "color": "#dddddd",
+          "margin": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+          },
+          "typo": {
+            "fontFamily": "",
+            "fontCategory": "",
+            "fontWeight": "400",
+            "fontVariant": "",
+            "isUploadFont": false,
+            "fontSize": {
+              "desktop": 13,
+              "tablet": 13,
+              "mobile": 12
+            },
+            "fontStyle": "normal",
+            "textTransform": "none",
+            "textDecoration": "none",
+            "lineHeight": "1.6",
+            "letterSpace": "0px"
+          }
+        },
+        "social": {
+          "iconColor": "#ffffff",
+          "iconHoverColor": "#000000",
+          "iconBg": "rgba(255, 255, 255, 0.15)",
+          "iconHoverBg": "#ffeb3b",
+          "iconSize": 14,
+          "btnSize": "36px",
+          "btnRadius": "50%",
+          "gap": 10,
+          "margin": {
+            "top": "18px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+          }
+        }
       }
     }
   },

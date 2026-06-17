@@ -1,21 +1,18 @@
 import { createRoot } from 'react-dom/client';
 import './style.scss';
 import Style from './Components/Common/Style';
-import OneCard from './Components/Common/cards/OneCard';
-
+import { OneCard } from './Components/Common/cards/OneCard';
 
 document.addEventListener('DOMContentLoaded', () => {
-	const blockNameEls = document.querySelectorAll('.wp-block-tsb-interactive-team-profiles-pro ');
-	blockNameEls.forEach(blockNameEl => {
-		const attributes = JSON.parse(blockNameEl.dataset.attributes);
+	const blockEls = document.querySelectorAll('.wp-block-tsb-interactive-team-profiles-pro');
+	blockEls.forEach(blockEl => {
+		const attributes = JSON.parse(blockEl.dataset.attributes);
 
-		createRoot(blockNameEl).render(<>
-			<Style attributes={attributes} id={blockNameEl.id} />
-        <OneCard/>
-
-
+		createRoot(blockEl).render(<>
+			<Style attributes={attributes} id={blockEl.id} />
+			<OneCard attributes={attributes} />
 		</>);
 
-		blockNameEl?.removeAttribute('data-attributes');
+		blockEl.removeAttribute('data-attributes');
 	});
 });

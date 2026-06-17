@@ -1015,7 +1015,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../bpl-tools/utils/getCSS */ "../bpl-tools/utils/getCSS.js");
+/* harmony import */ var _bpl_tools_utils_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../bpl-tools/utils/data */ "../bpl-tools/utils/data.js");
+/* harmony import */ var _bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../bpl-tools/utils/getCSS */ "../bpl-tools/utils/getCSS.js");
+
 
 
 const Style = ({
@@ -1023,16 +1025,130 @@ const Style = ({
   id
 }) => {
   const {
-    colors
-  } = attributes;
+    styles = {}
+  } = attributes || {};
   const mainSl = `#${id}`;
-  const blockSl = `${mainSl} .bBlocksTestPurpose`;
+  const sectionSl = `${mainSl} .itp_team_section`;
+  const containerSl = `${sectionSl} .itp_team_section__container`;
+  const gridSl = `${containerSl} .itp_team_section__cards`;
+  const cardSl = `${gridSl} .itp_team_section__card`;
+  const imgBoxSl = `${cardSl} .itp_team_section__img-box`;
+  const imgSl = `${imgBoxSl} img`;
+  const contentSl = `${cardSl} .itp_team_section__content`;
+  const nameSl = `${contentSl} .itp_card_name`;
+  const designationSl = `${contentSl} .itp_card_designation`;
+  const bioSl = `${contentSl} .itp_card_bio`;
+  const socialListSl = `${contentSl} .itp_team_section__social-links`;
+  const socialLinkSl = `${socialListSl} li a`;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", {
     dangerouslySetInnerHTML: {
       __html: `
-		
-		${blockSl} p{
-			${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getColorsCSS)(colors)}
+
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getTypoCSS)('', styles?.name?.typo)?.googleFontLink || ''}
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getTypoCSS)('', styles?.designation?.typo)?.googleFontLink || ''}
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getTypoCSS)('', styles?.bio?.typo)?.googleFontLink || ''}
+
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getTypoCSS)(nameSl, styles?.name?.typo)?.styles || ''}
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getTypoCSS)(designationSl, styles?.designation?.typo)?.styles || ''}
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getTypoCSS)(bioSl, styles?.bio?.typo)?.styles || ''}
+
+		${containerSl} {
+			${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBackgroundCSS)(styles?.bg)}
+			padding: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBoxCSS)(styles?.padding?.desktop)};
+			margin: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBoxCSS)(styles?.margin?.desktop)};
+		}
+
+		${gridSl} {
+			grid-template-columns: repeat(${styles?.columns?.desktop}, 1fr);
+			column-gap: ${styles?.columnGap || 28}px;
+			row-gap: ${styles?.rowGap || 28}px;
+		}
+
+		${cardSl} {
+			height: ${styles?.card?.height?.desktop};
+			border-radius: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBoxCSS)(styles?.card?.radius)};
+		}
+
+		${imgSl} {
+			object-fit: ${styles?.image?.imageFit || 'cover'};
+		}
+
+		${cardSl}:hover ${imgBoxSl} {
+			transform: scale(${styles?.image?.hoverScale || 1.06});
+		}
+
+		${contentSl} {
+			${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBackgroundCSS)(styles?.content?.bg)}
+			height: ${styles?.content?.height || '65%'};
+			padding: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBoxCSS)(styles?.content?.padding)};
+			text-align: ${styles?.content?.textAlign || 'center'};
+		}
+
+		${nameSl} {
+			color: ${styles?.name?.color || '#ffffff'};
+			margin: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBoxCSS)(styles?.name?.margin)};
+		}
+
+		${designationSl} {
+			color: ${styles?.designation?.color || '#ffeb3b'};
+			margin: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBoxCSS)(styles?.designation?.margin)};
+		}
+
+		${bioSl} {
+			color: ${styles?.bio?.color || '#dddddd'};
+			margin: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBoxCSS)(styles?.bio?.margin)};
+		}
+
+		${socialListSl} {
+			gap: ${styles?.social?.gap || 10}px;
+			margin: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBoxCSS)(styles?.social?.margin)};
+		}
+
+		${socialLinkSl} {
+			color: ${styles?.social?.iconColor || '#ffffff'};
+			background-color: ${styles?.social?.iconBg || 'rgba(255,255,255,0.15)'};
+			width: ${styles?.social?.btnSize || '36px'};
+			height: ${styles?.social?.btnSize || '36px'};
+			border-radius: ${styles?.social?.btnRadius || '50%'};
+			svg {
+				width: ${styles?.social?.iconSize || 14}px;
+				height: ${styles?.social?.iconSize || 14}px;
+			}
+		}
+
+		${socialLinkSl}:hover {
+			background-color: ${styles?.social?.iconHoverBg || '#ffeb3b'};
+			color: ${styles?.social?.iconHoverColor || '#000000'};
+			svg {
+				color: ${styles?.social?.iconHoverColor || '#000000'};
+				fill: ${styles?.social?.iconHoverColor || '#000000'};
+			}
+		}
+
+		${_bpl_tools_utils_data__WEBPACK_IMPORTED_MODULE_1__.tabBreakpoint} {
+			${containerSl} {
+				padding: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBoxCSS)(styles?.padding?.tablet)};
+				margin: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBoxCSS)(styles?.margin?.tablet)};
+			}
+			${gridSl} {
+				grid-template-columns: repeat(${styles?.columns?.tablet}, 1fr);
+			}
+			${cardSl} {
+				height: ${styles?.card?.height?.tablet};
+			}
+		}
+
+		${_bpl_tools_utils_data__WEBPACK_IMPORTED_MODULE_1__.mobileBreakpoint} {
+			${containerSl} {
+				padding: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBoxCSS)(styles?.padding?.mobile)};
+				margin: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_2__.getBoxCSS)(styles?.margin?.mobile)};
+			}
+			${gridSl} {
+				grid-template-columns: repeat(${styles?.columns?.mobile}, 1fr);
+			}
+			${cardSl} {
+				height: ${styles?.card?.height?.mobile};
+			}
 		}
 
 	`
@@ -1051,187 +1167,70 @@ const Style = ({
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   OneCard: () => (/* binding */ OneCard),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-
-const OneCard = () => {
+const normalizeIconColor = svgString => {
+  if (!svgString) return svgString;
+  return svgString.replace(/fill\s*=\s*["'][^"']*["']/gi, 'fill="currentColor"').replace(/(<svg[^>]*)(>)/i, (match, p1, p2) => {
+    if (!p1.includes('fill=')) {
+      return p1 + ' fill="currentColor"' + p2;
+    }
+    return match;
+  });
+};
+const OneCard = ({
+  attributes
+}) => {
+  const {
+    profiles = [],
+    options = {
+      showName: true,
+      showDesignation: true,
+      showBio: true,
+      showSocial: true,
+      openInNewTab: true
+    }
+  } = attributes || {};
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     className: "itp_team_section"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "itp_team_section__container"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "itp_team_section__cards"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "itp_team_section__card"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "itp_team_section__img-box"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: "https://images.pexels.com/photos/3131819/pexels-photo-3131819.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Portrait of Bhairab Patra"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "itp_team_section__content"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Bhairab Patra"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 512 512",
-    width: "14",
-    height: "14",
-    fill: "currentColor",
-    "aria-hidden": "true"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M358.9 0L384 25.1 356.9 52.2 384 79.3 256 207.3l-14.3 14.3-10.1-6.1C203.4 198.4 160 212.5 160 248c0 22.6 9.9 40.8 22.6 55.4l-29 29C135.6 313.8 128 289.5 128 264c0-55.5 36.8-97.4 88.2-110.5L352 17.5 358.9 0zM256 320a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm64 112c-35.3 0-64 28.7-64 64v16H320V496c0-35.3-28.7-64-64-64zm64-192v96c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V240l64 0 0-80H192L384 0 448 64 256 256l0 0z"
-  })), "UX / UI Designer"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Crafting seamless digital experiences with an eye for detail and a passion for great design."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
-    className: "itp_team_section__social-links"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#",
-    "aria-label": "Facebook"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 320 512",
-    width: "14",
-    height: "14",
-    fill: "currentColor",
-    "aria-hidden": "true"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
-  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#",
-    "aria-label": "X (Twitter)"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 512 512",
-    width: "14",
-    height: "14",
-    fill: "currentColor",
-    "aria-hidden": "true"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
-  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#",
-    "aria-label": "LinkedIn"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 448 512",
-    width: "14",
-    height: "14",
-    fill: "currentColor",
-    "aria-hidden": "true"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
-  }))))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "itp_team_section__card"
+  }, profiles.map((profile, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "itp_team_section__card",
+    key: index
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "itp_team_section__img-box"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: "https://images.pexels.com/photos/4856247/pexels-photo-4856247.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Portrait of Swapna"
+  }, profile.image ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: profile.image,
+    alt: profile.name || ''
+  }) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "itp_team_section__img-placeholder"
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "itp_team_section__content"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Swapna"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 640 512",
-    width: "16",
-    height: "14",
-    fill: "currentColor",
-    "aria-hidden": "true"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM609.3 512H471.4c5.4-9.4 8.6-20.3 8.6-32v-8c0-60.7-27.1-115.2-69.8-151.8c2.4-.1 4.7-.2 7.1-.2h61.4C567.8 320 640 392.2 640 481.3c0 17-13.8 30.7-30.7 30.7zM432 256c-31 0-59-12.6-79.3-32.9C372.4 196.5 384 163.6 384 128c0-26.8-6.6-52.1-18.3-74.3C384.3 40.1 407.2 32 432 32c61.9 0 112 50.1 112 112s-50.1 112-112 112z"
-  })), "HR Manager"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Building a thriving culture by connecting people with purpose and creating a great workplace."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+  }, options.showName && profile.name && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: "itp_card_name"
+  }, profile.name), options.showDesignation && profile.designation && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "itp_card_designation"
+  }, profile.designation), options.showBio && profile.bio && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "itp_card_bio"
+  }, profile.bio), options.showSocial && profile.social?.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
     className: "itp_team_section__social-links"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#",
-    "aria-label": "Facebook"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 320 512",
-    width: "14",
-    height: "14",
-    fill: "currentColor",
-    "aria-hidden": "true"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
-  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#",
-    "aria-label": "X (Twitter)"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 512 512",
-    width: "14",
-    height: "14",
-    fill: "currentColor",
-    "aria-hidden": "true"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
-  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#",
-    "aria-label": "LinkedIn"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 448 512",
-    width: "14",
-    height: "14",
-    fill: "currentColor",
-    "aria-hidden": "true"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
-  }))))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "itp_team_section__card"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "itp_team_section__img-box"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Portrait of Virat"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "itp_team_section__content"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Virat"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 640 512",
-    width: "16",
-    height: "14",
-    fill: "currentColor",
-    "aria-hidden": "true"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"
-  })), "Java Developer"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Writing robust, scalable backend systems that power products millions of people rely on."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
-    className: "itp_team_section__social-links"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#",
-    "aria-label": "Facebook"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 320 512",
-    width: "14",
-    height: "14",
-    fill: "currentColor",
-    "aria-hidden": "true"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
-  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#",
-    "aria-label": "X (Twitter)"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 512 512",
-    width: "14",
-    height: "14",
-    fill: "currentColor",
-    "aria-hidden": "true"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
-  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#",
-    "aria-label": "LinkedIn"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 448 512",
-    width: "14",
-    height: "14",
-    fill: "currentColor",
-    "aria-hidden": "true"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+  }, profile.social.map((item, sIndex) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    key: sIndex
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: item.link || '#',
+    target: options.openInNewTab ? '_blank' : '_self',
+    rel: options.openInNewTab ? 'noopener noreferrer' : '',
+    "aria-label": profile.name,
+    dangerouslySetInnerHTML: {
+      __html: normalizeIconColor(item.icon)
+    }
   }))))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OneCard);
@@ -1387,14 +1386,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const blockNameEls = document.querySelectorAll('.wp-block-tsb-interactive-team-profiles-pro ');
-  blockNameEls.forEach(blockNameEl => {
-    const attributes = JSON.parse(blockNameEl.dataset.attributes);
-    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(blockNameEl).render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Common_Style__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  const blockEls = document.querySelectorAll('.wp-block-tsb-interactive-team-profiles-pro');
+  blockEls.forEach(blockEl => {
+    const attributes = JSON.parse(blockEl.dataset.attributes);
+    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(blockEl).render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Common_Style__WEBPACK_IMPORTED_MODULE_3__["default"], {
       attributes: attributes,
-      id: blockNameEl.id
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Common_cards_OneCard__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
-    blockNameEl?.removeAttribute('data-attributes');
+      id: blockEl.id
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Common_cards_OneCard__WEBPACK_IMPORTED_MODULE_4__.OneCard, {
+      attributes: attributes
+    })));
+    blockEl.removeAttribute('data-attributes');
   });
 });
 /******/ })()
