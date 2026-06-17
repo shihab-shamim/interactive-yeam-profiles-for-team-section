@@ -1,0 +1,229 @@
+$primaryColor: #4527a4;
+
+.wp-block-tsb-interactive-team-profiles-pro {
+	box-sizing: border-box;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* ══════════════════════════════════════════════
+   itp_team_section  –  Deep Nested CSS
+══════════════════════════════════════════════ */
+.itp_team_section {
+    width: 100%;
+
+    /* ── Container ─────────────────────────── */
+    .itp_team_section__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        /* ── Header ────────────────────────── */
+        .itp_team_section__header {
+            text-align: center;
+            margin-bottom: 48px;
+
+            .itp_team_section__badge {
+                display: inline-block;
+                background: linear-gradient(135deg, #ffeb3b, #ff9800);
+                color: #000;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                padding: 6px 18px;
+                border-radius: 50px;
+                margin-bottom: 16px;
+            }
+
+            h1 {
+                color: #fff;
+                font-size: clamp(32px, 5vw, 52px);
+                font-weight: 700;
+                margin-bottom: 12px;
+            }
+
+            p {
+                color: #aaa;
+                font-size: 16px;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+        }
+
+        /* ── Cards Grid ────────────────────── */
+        .itp_team_section__cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            width: 100%;
+
+            /* ── Individual Card ───────────── */
+            .itp_team_section__card {
+                position: relative;
+                height: 520px;
+                width: 100%;
+                overflow: hidden;
+                border-radius: 16px;
+                transition: transform 0.4s ease, box-shadow 0.4s ease;
+                cursor: pointer;
+
+                &:hover {
+                    transform: translateY(-6px);
+                    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+
+                    .itp_team_section__img-box {
+                        transform: scale(1.06);
+                    }
+
+                    .itp_team_section__content {
+                        bottom: 0;
+                    }
+                }
+
+                /* ── Image Box ─────────────── */
+                .itp_team_section__img-box {
+                    position: absolute;
+                    inset: 0;
+                    width: 100%;
+                    height: 100%;
+                    transition: transform 0.5s ease;
+                    transform-origin: center bottom;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                /* ── Overlay Content ───────── */
+                .itp_team_section__content {
+                    position: absolute;
+                    width: 100%;
+                    height: 65%;
+                    bottom: -100%;
+                    padding: 70px 24px 28px;
+                    box-sizing: border-box;
+                    text-align: center;
+                    transition: bottom 0.45s ease;
+                    background: linear-gradient(0deg, #000 50%, transparent);
+
+                    h2 {
+                        margin-bottom: 6px;
+                        color: #fff;
+                        font-size: 22px;
+                        font-weight: 700;
+                    }
+
+                    h3 {
+                        color: #ffeb3b;
+                        font-size: 14px;
+                        font-weight: 500;
+                        margin-bottom: 14px;
+                        letter-spacing: 0.5px;
+
+                        svg {
+                            vertical-align: middle;
+                            margin-right: 5px;
+                            flex-shrink: 0;
+                        }
+                    }
+
+                    p {
+                        margin: 0;
+                        color: #ddd;
+                        font-size: 13px;
+                        line-height: 1.6;
+                    }
+
+                    /* ── Social Links ──────── */
+                    .itp_team_section__social-links {
+                        display: flex;
+                        margin: 18px 0 0;
+                        padding: 0;
+                        align-items: center;
+                        justify-content: center;
+                        list-style: none;
+                        gap: 10px;
+
+                        li {
+                            a {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                height: 36px;
+                                width: 36px;
+                                border-radius: 50%;
+                                background-color: rgba(255, 255, 255, 0.15);
+                                color: #fff;
+                                font-size: 14px;
+                                transition: background 0.3s ease, transform 0.3s ease;
+                                text-decoration: none;
+                                backdrop-filter: blur(4px);
+
+                                svg {
+                                    display: block;
+                                }
+
+                                &:hover {
+                                    background-color: #ffeb3b;
+                                    color: #000;
+                                    transform: scale(1.15);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ══════════════════════════════════════════════
+   Responsive  –  Tablet  (≤ 1023px)
+══════════════════════════════════════════════ */
+@media (max-width: 1023px) {
+    .itp_team_section {
+        .itp_team_section__container {
+            .itp_team_section__cards {
+                grid-template-columns: repeat(2, 1fr);
+
+                .itp_team_section__card {
+                    height: 480px;
+                }
+            }
+        }
+    }
+}
+
+/* ══════════════════════════════════════════════
+   Responsive  –  Mobile  (≤ 639px)
+══════════════════════════════════════════════ */
+@media (max-width: 639px) {
+    body {
+        padding: 30px 16px;
+    }
+
+    .itp_team_section {
+        .itp_team_section__container {
+            .itp_team_section__header {
+                margin-bottom: 32px;
+            }
+
+            .itp_team_section__cards {
+                grid-template-columns: 1fr;
+                gap: 24px;
+
+                .itp_team_section__card {
+                    height: 440px;
+                }
+            }
+        }
+    }
+}
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tsb/interactive-team-profiles-pro",
+  "version": "1.0.0",
+  "title": "Interactive Team Profiles",
+  "category": "widgets",
+  "description": "Interactive Team Profiles is a WordPress plugin that allows you to create interactive team profiles on your website.",
+  "keywords": [
+    "interactive",
+    "team",
+    "profiles",
+    "cards"
+  ],
+  "textdomain": "team-section",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "wide"
+    },
+    "purposeType": {
+      "type": "string",
+      "default": "test"
+    },
+    "colors": {
+      "type": "object",
+      "default": {
+        "color": "black",
+        "bg": "#B1C5A4"
+      }
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "example": {
+    "attributes": {}
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./view.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
