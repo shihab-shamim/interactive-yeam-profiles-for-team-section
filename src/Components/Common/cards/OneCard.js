@@ -10,7 +10,7 @@ const normalizeIconColor = (svgString) => {
 		});
 };
 
-export const OneCard = ({ attributes }) => {
+export const OneCard = ({ attributes, Richtext, setAttributes }) => {
 	const {
 		profiles = [],
 		options = { showName: true, showDesignation: true, showBio: true, showSocial: true, openInNewTab: true }
@@ -30,17 +30,17 @@ export const OneCard = ({ attributes }) => {
 							</div>
 
 							<div className='itp_team_section__content'>
-								{options.showName && profile.name && (
-									<h2 className='itp_card_name'>{profile.name}</h2>
-								)}
+								{options.showName && profile.name && !Richtext && <h2 className='itp_card_name' dangerouslySetInnerHTML={{ __html: profile.name }} />}
 
-								{options.showDesignation && profile.designation && (
-									<h3 className='itp_card_designation'>{profile.designation}</h3>
-								)}
+								{options.showName && Richtext && <Richtext tagName="h2" value={profile.name} onChange={(value) => setAttributes({ ...attributes, profiles: attributes.profiles.map((p, i) => i === index ? { ...p, name: value } : p) })} className='itp_card_name' placeholder="Enter name" />}
 
-								{options.showBio && profile.bio && (
-									<p className='itp_card_bio'>{profile.bio}</p>
-								)}
+								{options.showDesignation && profile.designation && !Richtext && <h3 className='itp_card_designation' dangerouslySetInnerHTML={{ __html: profile.designation }} />}
+
+								{options.showDesignation && Richtext && <Richtext tagName="h3" value={profile.designation} onChange={(value) => setAttributes({ ...attributes, profiles: attributes.profiles.map((p, i) => i === index ? { ...p, designation: value } : p) })} className='itp_card_designation' placeholder="Enter designation" />}
+
+								{options.showBio && profile.bio && !Richtext && <p className='itp_card_bio' dangerouslySetInnerHTML={{ __html: profile.bio }} />}
+
+								{options.showBio && Richtext && <Richtext tagName="p" value={profile.bio} onChange={(value) => setAttributes({ ...attributes, profiles: attributes.profiles.map((p, i) => i === index ? { ...p, bio: value } : p) })} className='itp_card_bio' placeholder="Enter bio" />}
 
 								{options.showSocial && profile.social?.length > 0 && (
 									<ul className='itp_team_section__social-links'>

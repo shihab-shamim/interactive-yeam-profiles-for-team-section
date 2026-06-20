@@ -1183,7 +1183,9 @@ const normalizeIconColor = svgString => {
   });
 };
 const OneCard = ({
-  attributes
+  attributes,
+  Richtext,
+  setAttributes
 }) => {
   const {
     profiles = [],
@@ -1213,13 +1215,58 @@ const OneCard = ({
     className: "itp_team_section__img-placeholder"
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "itp_team_section__content"
-  }, options.showName && profile.name && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
-    className: "itp_card_name"
-  }, profile.name), options.showDesignation && profile.designation && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
-    className: "itp_card_designation"
-  }, profile.designation), options.showBio && profile.bio && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "itp_card_bio"
-  }, profile.bio), options.showSocial && profile.social?.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+  }, options.showName && profile.name && !Richtext && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: "itp_card_name",
+    dangerouslySetInnerHTML: {
+      __html: profile.name
+    }
+  }), options.showName && Richtext && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Richtext, {
+    tagName: "h2",
+    value: profile.name,
+    onChange: value => setAttributes({
+      ...attributes,
+      profiles: attributes.profiles.map((p, i) => i === index ? {
+        ...p,
+        name: value
+      } : p)
+    }),
+    className: "itp_card_name",
+    placeholder: "Enter name"
+  }), options.showDesignation && profile.designation && !Richtext && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "itp_card_designation",
+    dangerouslySetInnerHTML: {
+      __html: profile.designation
+    }
+  }), options.showDesignation && Richtext && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Richtext, {
+    tagName: "h3",
+    value: profile.designation,
+    onChange: value => setAttributes({
+      ...attributes,
+      profiles: attributes.profiles.map((p, i) => i === index ? {
+        ...p,
+        designation: value
+      } : p)
+    }),
+    className: "itp_card_designation",
+    placeholder: "Enter designation"
+  }), options.showBio && profile.bio && !Richtext && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "itp_card_bio",
+    dangerouslySetInnerHTML: {
+      __html: profile.bio
+    }
+  }), options.showBio && Richtext && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Richtext, {
+    tagName: "p",
+    value: profile.bio,
+    onChange: value => setAttributes({
+      ...attributes,
+      profiles: attributes.profiles.map((p, i) => i === index ? {
+        ...p,
+        bio: value
+      } : p)
+    }),
+    className: "itp_card_bio",
+    placeholder: "Enter bio"
+  }), options.showSocial && profile.social?.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
     className: "itp_team_section__social-links"
   }, profile.social.map((item, sIndex) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
     key: sIndex
